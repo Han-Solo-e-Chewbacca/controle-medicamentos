@@ -20,7 +20,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFuncionario
             if (exibirTitulo)
             {
                 ApresentarCabecalho();
-                Console.WriteLine("Visualizando Funcionarios...");
+                Console.WriteLine("Visualizando Funcionários...");
             }
 
             Console.WriteLine(
