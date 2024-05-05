@@ -8,13 +8,7 @@ using System.Threading.Tasks;
 namespace ControleMedicamentos.ConsoleApp.ModuloFuncionario
 {
     internal class TelaFuncionario : TelaBase
-    {
-        public TelaFuncionario(RepositorioBase repositorio, string nome)
-        {
-            this.repositorio = repositorio;
-            tipoEntidade = nome;
-        }
-
+    {     
         public override void VisualizarRegistros(bool exibirTitulo)
         {
             if (exibirTitulo)

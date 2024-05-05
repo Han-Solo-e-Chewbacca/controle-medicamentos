@@ -12,16 +12,19 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFornecedor
     internal class Fornecedor : EntidadeBase
 
     {
-        public string nome;
-        public string telefone;
-        public string cnpj;
-
         public Fornecedor(string nome, string telefone, string cnpj)
         {
             this.nome = nome;
             this.telefone = telefone;
             this.cnpj = cnpj;
         }
+
+        public string nome { get; set; }
+        public string telefone { get; set; }
+        public string cnpj { get; set; }
+
+
+      
 
         public override string[] Validar() 
         {

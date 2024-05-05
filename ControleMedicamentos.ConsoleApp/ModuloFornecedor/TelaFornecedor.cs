@@ -10,13 +10,7 @@ using ControleMedicamentos.ConsoleApp.ModuloFuncionario;
 namespace ControleMedicamentos.ConsoleApp.ModuloFornecedor
 {
     internal class TelaFornecedor : TelaBase
-    {
-        public TelaFornecedor(RepositorioBase repositorio, string nome)
-        {
-            this.repositorio = repositorio;
-            tipoEntidade = nome;
-        }
-
+    {     
         public override void VisualizarRegistros(bool exibirTitulo)
         {
             if (exibirTitulo)
@@ -46,7 +40,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFornecedor
                 );
             }
 
-            Console.ReadKey(true);
+            Console.ReadLine( );
             Console.WriteLine();
         }
 

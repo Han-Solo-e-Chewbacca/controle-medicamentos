@@ -1,24 +1,26 @@
 ﻿using ControleMedicamentos.ConsoleApp.Compartilhado;
+using ControleMedicamentos.ConsoleApp.ModuloFornecedor;
 using ControleMedicamentos.ConsoleApp.ModuloMedicamento;
 using ControleMedicamentos.ConsoleApp.ModuloPaciente;
 
-namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao
+namespace ControleMedicamentos.ConsoleApp.ModuloRequisicaoEntrada
 {
-    internal class RequisicaoSaida : EntidadeBase
+    internal class RequesicaoEntrada : EntidadeBase
     {
-
         public Medicamento Medicamento { get; set; }
         public Paciente Paciente { get; set; }
+        public Fornecedor Fornecedor { get; set; }
         public DateTime DataRequisicao { get; set; }
         public int QuantidadeRetirada { get; set; }
 
-        public RequisicaoSaida(Medicamento medicamentoSelecionado, Paciente pacienteSelecionado, int quantidade)
+        public  RequesicaoEntrada(Medicamento medicamentoSelecionado, Fornecedor fornecedorSelecionado, int quantidade)
         {
             Medicamento = medicamentoSelecionado;
-            Paciente = pacienteSelecionado;
+            Fornecedor = fornecedorSelecionado;
 
             DataRequisicao = DateTime.Now;
             QuantidadeRetirada = quantidade;
+            
         }
 
         public override string[] Validar()
@@ -29,7 +31,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao
             if (Medicamento == null)
                 erros[contadorErros++] = "O medicamento precisa ser preenchido";
 
-            if (Paciente == null)
+            if (Fornecedor == null)
                 erros[contadorErros++] = "O paciente precisa ser informado";
 
             if (QuantidadeRetirada < 1)
@@ -42,12 +44,13 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao
             return errosFiltrados;
         }
 
-        public bool RetirarMedicamento()
+        public bool AdicionarMedicamento()
         {
-            
+           
 
-            Medicamento.Quantidade -= QuantidadeRetirada;
+            Medicamento.Quantidade += QuantidadeRetirada;
             return true;
         }
     }
 }
+
