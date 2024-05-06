@@ -52,10 +52,10 @@ namespace ControleMedicamentos.ConsoleApp
             TelaRequisicaoEntrada telaRequisicaoEntrada = new TelaRequisicaoEntrada();
             telaRequisicaoEntrada.repositorio = repositorioRequesicaoEntrada;
             telaRequisicaoEntrada.tipoEntidade = "Requisição";
-            telaRequisicaoEntrada.repositorioFornecedor = repositorioFornecedor;
+            telaRequisicaoEntrada.repositorioFuncionario = repositorioFuncionario;
             telaRequisicaoEntrada.telaPaciente = telaPaciente;
             telaRequisicaoEntrada.telaMedicamento = telaMedicamento;
-            telaRequisicaoEntrada.telaFornecedor = telaFornecedor;
+            telaRequisicaoEntrada.telaFuncionario = telaFuncionario;
             telaRequisicaoEntrada.repositorioPaciente = repositorioPaciente;
             telaRequisicaoEntrada.repositorioMedicamento = repositorioMedicamento;
 

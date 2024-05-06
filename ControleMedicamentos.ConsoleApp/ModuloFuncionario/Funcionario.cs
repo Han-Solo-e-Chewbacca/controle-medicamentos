@@ -9,10 +9,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFuncionario
 {
     internal class Funcionario : EntidadeBase
     {
-        public string nome { get; set; }
-        public string login { get; set; }
-        public string senha { get; set; }
-        public string cpf { get; set; }
+      
 
         public Funcionario(string nome, string login, string senha, string cpf)
         {
@@ -21,6 +18,10 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFuncionario
             this.senha = senha;
             this.cpf = cpf;
         }
+        public string nome { get; set; }
+        public string login { get; set; }
+        public string senha { get; set; }
+        public string cpf { get; set; } 
 
         public override string[] Validar()
         {

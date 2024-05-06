@@ -12,11 +12,11 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicaoEntrada
         public TelaPaciente telaPaciente = null;
         public TelaMedicamento telaMedicamento = null;
         public TelaFornecedor telaFornecedor = null;
-        public TelaFuncionario TelaFuncionario = null;
+        public TelaFuncionario telaFuncionario = null;
         public RepositorioPaciente repositorioPaciente = null;
         public RepositorioMedicamento repositorioMedicamento = null;
         public RepositorioFornecedor repositorioFornecedor = null;
-        public RepositorioFuncionario RepositorioFuncionario = null;
+        public RepositorioFuncionario repositorioFuncionario = null;
 
         public override void Registrar()
         {
@@ -62,7 +62,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicaoEntrada
 
             Console.WriteLine(
                 "{0, -10} | {1, -15} | {2, -15} | {3, -20} | {4, -5}",
-                "Id", "Medicamento", "Fornecedor", "Data de Requisição", "Quantidade"
+                "Id", "Medicamento", "Funcionario", "Data de Requisição", "Quantidade"
             );
 
             EntidadeBase[] requisicoesCadastradas = repositorio.SelecionarTodos();
@@ -76,7 +76,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicaoEntrada
                     "{0, -10} | {1, -15} | {2, -15} | {3, -20} | {4, -5}",
                     requisicao.Id,
                     requisicao.Medicamento.Nome,
-                    requisicao.Fornecedor.nome,
+                    requisicao.Funcionario.nome,
                     requisicao.DataRequisicao.ToShortDateString(),
                     requisicao.QuantidadeRetirada
                 );
@@ -95,17 +95,19 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicaoEntrada
 
             Medicamento medicamentoSelecionado = (Medicamento)repositorioMedicamento.SelecionarPorId(idMedicamento);
 
-            telaFornecedor.VisualizarRegistros(false);
+            telaFuncionario.VisualizarRegistros(false);
 
-            Console.Write("Digite o ID do fornecedor requisitante: ");
-            int idFornecedor = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Digite o ID do funcionário requisitante: ");
+            int idFuncionario = Convert.ToInt32(Console.ReadLine());
 
-            Fornecedor fornecedorSelecionado = (Fornecedor)repositorioFornecedor.SelecionarPorId(idFornecedor);
+            Funcionario funcionarioSelecionado = (Funcionario)repositorioFuncionario.SelecionarPorId(idFuncionario);
 
             Console.Write("Digite a quantidade do medicamente que deseja adicionar: ");
             int quantidade = Convert.ToInt32(Console.ReadLine());
 
-            RequesicaoEntrada novaRequisicao = new RequesicaoEntrada(medicamentoSelecionado, fornecedorSelecionado, quantidade);
+            Console.WriteLine("Digite o ID do fu");
+
+            RequesicaoEntrada novaRequisicao = new RequesicaoEntrada(medicamentoSelecionado, funcionarioSelecionado, quantidade);
 
             return novaRequisicao;
         }
