@@ -105,7 +105,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicaoEntrada
             Console.Write("Digite a quantidade do medicamente que deseja adicionar: ");
             int quantidade = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("Digite o ID do fu");
+            
 
             RequesicaoEntrada novaRequisicao = new RequesicaoEntrada(medicamentoSelecionado, funcionarioSelecionado, quantidade);
 

@@ -23,7 +23,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFornecedor
             Console.WriteLine();
 
             Console.WriteLine(
-                "{0, -10} | {1, -20} | {2, -20}| {3, -20}",
+                "{0, -10} | {1, -20} | {2, -20} | {3, -20}",
                 "Id", "Nome", "CNPJ", "Telefone"
             );
 

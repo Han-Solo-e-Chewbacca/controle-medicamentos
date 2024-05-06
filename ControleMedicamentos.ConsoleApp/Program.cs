@@ -20,15 +20,19 @@ namespace ControleMedicamentos.ConsoleApp
 
             telaPaciente.CadastrarEntidadeTeste();
 
-            RepositorioMedicamento repositorioMedicamento = new RepositorioMedicamento();
-            TelaMedicamento telaMedicamento = new TelaMedicamento();
-            telaMedicamento.repositorio = repositorioMedicamento;
-            telaMedicamento.tipoEntidade = "Medicamento";
-           
+            
+
             RepositorioFornecedor repositorioFornecedor = new RepositorioFornecedor();
             TelaFornecedor telaFornecedor = new TelaFornecedor();
             telaFornecedor.repositorio = repositorioFornecedor;
             telaFornecedor.tipoEntidade = "Fornecedor";
+
+            RepositorioMedicamento repositorioMedicamento = new RepositorioMedicamento();
+            TelaMedicamento telaMedicamento = new TelaMedicamento();
+            telaMedicamento.repositorio = repositorioMedicamento;
+            telaMedicamento.tipoEntidade = "Medicamento";
+            telaMedicamento.repositorioFornecedor = repositorioFornecedor;
+            telaMedicamento.telaFornecedor = telaFornecedor;
 
             RepositorioFuncionario repositorioFuncionario = new RepositorioFuncionario();
             TelaFuncionario telaFuncionario = new TelaFuncionario();

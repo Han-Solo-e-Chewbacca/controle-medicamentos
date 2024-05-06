@@ -16,7 +16,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFuncionario
                 ApresentarCabecalho();
                 Console.WriteLine("Visualizando Funcionários...");
             }
-
+            Console.WriteLine();
             Console.WriteLine(
                 "\n{0, -10} | {1, -20} | {2, -20} | {3, -20} | {4, -20}",
                 "Id", "Nome", "CPF", "Login", "Senha"
