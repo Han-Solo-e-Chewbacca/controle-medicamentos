@@ -1,4 +1,6 @@
-﻿namespace ControleMedicamentos.ConsoleApp.Compartilhado
+﻿using System.Collections;
+
+namespace ControleMedicamentos.ConsoleApp.Compartilhado
 {
     internal abstract class TelaBase
     {
@@ -40,9 +42,9 @@
 
             EntidadeBase entidade = ObterRegistro();
 
-            string[] erros = entidade.Validar();
+            ArrayList erros = entidade.Validar();
 
-            if (erros.Length > 0)
+            if (erros.Count > 0)
             {
                 ApresentarErros(erros);
                 return;
@@ -51,6 +53,11 @@
             repositorio.Cadastrar(entidade);
 
             ExibirMensagem($"O {tipoEntidade} foi cadastrado com sucesso!", ConsoleColor.Green);
+        }
+
+        private void ApresentarErros(ArrayList erros)
+        {
+            throw new NotImplementedException();
         }
 
         public void Editar()
@@ -76,9 +83,9 @@
 
             EntidadeBase entidade = ObterRegistro();
 
-            string[] erros = entidade.Validar();
+            ArrayList erros = entidade.Validar();
 
-            if (erros.Length > 0)
+            if (erros.Count > 0)
             {
                 ApresentarErros(erros);
                 return;

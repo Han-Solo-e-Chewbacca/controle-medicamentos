@@ -1,5 +1,6 @@
 ﻿using ControleMedicamentos.ConsoleApp.Compartilhado;
 using ControleMedicamentos.ConsoleApp.ModuloFornecedor;
+using System.Collections;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloMedicamento
 {
@@ -22,9 +23,9 @@ namespace ControleMedicamentos.ConsoleApp.ModuloMedicamento
         public int Quantidade { get; set; } 
         public Fornecedor Fornecedor { get; set; }
 
-        public override string[] Validar()
+        public override ArrayList Validar()
         {
-            string[] erros = new string[3];
+            ArrayList erros = new ArrayList();
             int contadorErros = 0;
 
             if (string.IsNullOrEmpty(Nome.Trim()))
@@ -42,11 +43,13 @@ namespace ControleMedicamentos.ConsoleApp.ModuloMedicamento
             if (DataValidade < hoje)
                 erros[contadorErros++] = ("O campo \"data de validade\" não pode ser menor que a data atual");
 
-            string[] errosFiltrados = new string[contadorErros];
+            
 
-            Array.Copy(erros, errosFiltrados, contadorErros);
-
-            return errosFiltrados;
+            return erros;
+        }
+        public override void AtualizarRegistro(EntidadeBase novoRegistro)
+        {
+            throw new NotImplementedException();
         }
 
     }

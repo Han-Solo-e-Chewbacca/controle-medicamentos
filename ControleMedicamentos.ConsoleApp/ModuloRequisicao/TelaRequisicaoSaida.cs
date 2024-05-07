@@ -3,6 +3,7 @@ using ControleMedicamentos.ConsoleApp.ModuloMedicamento;
 using ControleMedicamentos.ConsoleApp.ModuloPaciente;
 using ControleMedicamentos.ConsoleApp.ModuloFornecedor;
 using ControleMedicamentos.ConsoleApp.ModuloFuncionario;
+using System.Collections;
 namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao
 {
     internal class TelaRequisicaoSaida : TelaBase
@@ -25,9 +26,9 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao
 
             RequisicaoSaida entidade = (RequisicaoSaida)ObterRegistro();
 
-            string[] erros = entidade.Validar();
+            ArrayList erros = entidade.Validar();
 
-            if (erros.Length > 0)
+            if (erros.Count > 0)
             {
                 ApresentarErros(erros);
                 return;
@@ -46,6 +47,11 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao
             ExibirMensagem($"O {tipoEntidade} foi cadastrado com sucesso!", ConsoleColor.Green);
         }
 
+        private void ApresentarErros(ArrayList erros)
+        {
+            throw new NotImplementedException();
+        }
+
         public override void VisualizarRegistros(bool exibirTitulo)
         {
             if (exibirTitulo)
@@ -62,7 +68,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao
                 "Id", "Medicamento", "Paciente", "Data de Requisição", "Quantidade"
             );
 
-            EntidadeBase[] requisicoesCadastradas = repositorio.SelecionarTodos();
+            ArrayList requisicoesCadastradas = repositorio.SelecionarTodos();
 
             foreach (RequisicaoSaida requisicao in requisicoesCadastradas)
             {

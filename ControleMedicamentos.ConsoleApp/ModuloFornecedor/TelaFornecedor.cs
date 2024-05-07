@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ControleMedicamentos.ConsoleApp.ModuloMedicamento;
 using ControleMedicamentos.ConsoleApp.ModuloFuncionario;
+using System.Collections;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloFornecedor
 {
@@ -27,7 +28,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFornecedor
                 "Id", "Nome", "CNPJ", "Telefone"
             );
 
-            EntidadeBase[] fornecedoresCadastrados = repositorio.SelecionarTodos();
+            ArrayList fornecedoresCadastrados = repositorio.SelecionarTodos();
 
             foreach (Fornecedor fornecedor in fornecedoresCadastrados)
             {

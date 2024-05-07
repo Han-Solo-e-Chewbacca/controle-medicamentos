@@ -3,6 +3,7 @@ using ControleMedicamentos.ConsoleApp.ModuloFornecedor;
 using ControleMedicamentos.ConsoleApp.ModuloFuncionario;
 using ControleMedicamentos.ConsoleApp.ModuloMedicamento;
 using ControleMedicamentos.ConsoleApp.ModuloPaciente;
+using System.Collections;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloRequisicaoEntrada
 {
@@ -25,9 +26,9 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicaoEntrada
             
         }
 
-        public override string[] Validar()
+        public override ArrayList Validar()
         {
-            string[] erros = new string[3];
+            ArrayList erros = ArrayList();
             int contadorErros = 0;
 
             if (Medicamento == null)
@@ -39,11 +40,18 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicaoEntrada
             if (QuantidadeRetirada < 1)
                 erros[contadorErros++] = "Por favor informe uma quantidade válida";
 
-            string[] errosFiltrados = new string[contadorErros];
+            
 
-            Array.Copy(erros, errosFiltrados, contadorErros);
+            return erros;
+        }
 
-            return errosFiltrados;
+        private ArrayList ArrayList()
+        {
+            throw new NotImplementedException();
+        }
+        public override void AtualizarRegistro(EntidadeBase novoRegistro)
+        {
+            throw new NotImplementedException();
         }
 
         public bool AdicionarMedicamento()

@@ -1,6 +1,7 @@
 ﻿
 
 using ControleMedicamentos.ConsoleApp.Compartilhado;
+using System.Collections;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloPaciente
 {
@@ -17,9 +18,9 @@ namespace ControleMedicamentos.ConsoleApp.ModuloPaciente
             CartaoSus = cartaoSus;
         }
 
-        public override string[] Validar()
+        public override ArrayList Validar()
         {
-            string[] erros = new string[3];
+            ArrayList erros = new ArrayList();
             int contadorErros = 0;
 
             if (Nome.Length < 3)
@@ -31,11 +32,13 @@ namespace ControleMedicamentos.ConsoleApp.ModuloPaciente
             if (string.IsNullOrEmpty(CartaoSus))
                 erros[contadorErros++] = "O Cartão do SUS precisa ser preenchido";
 
-            string[] errosFiltrados = new string[contadorErros];
+            
 
-            Array.Copy(erros, errosFiltrados, contadorErros);
-
-            return errosFiltrados;
+            return erros;
+        }
+        public override void AtualizarRegistro(EntidadeBase novoRegistro)
+        {
+            throw new NotImplementedException();
         }
     }
 }

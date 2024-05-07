@@ -1,6 +1,7 @@
 ﻿using ControleMedicamentos.ConsoleApp.Compartilhado;
 using ControleMedicamentos.ConsoleApp.ModuloMedicamento;
 using ControleMedicamentos.ConsoleApp.ModuloPaciente;
+using System.Collections;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao
 {
@@ -21,9 +22,9 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao
             QuantidadeRetirada = quantidade;
         }
 
-        public override string[] Validar()
+        public override ArrayList Validar()
         {
-            string[] erros = new string[3];
+            ArrayList erros = new ArrayList();
             int contadorErros = 0;
 
             if (Medicamento == null)
@@ -35,13 +36,14 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao
             if (QuantidadeRetirada < 1)
                 erros[contadorErros++] = "Por favor informe uma quantidade válida";
 
-            string[] errosFiltrados = new string[contadorErros];
+            
 
-            Array.Copy(erros, errosFiltrados, contadorErros);
-
-            return errosFiltrados;
+            return erros;
         }
-
+        public override void AtualizarRegistro(EntidadeBase novoRegistro)
+        {
+            throw new NotImplementedException();
+        }
         public bool RetirarMedicamento()
         {
             

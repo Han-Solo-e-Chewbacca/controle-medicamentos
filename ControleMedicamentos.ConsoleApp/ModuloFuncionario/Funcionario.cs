@@ -23,9 +23,9 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFuncionario
         public string senha { get; set; }
         public string cpf { get; set; } 
 
-        public override string[] Validar()
+        public override ArrayList Validar()
         {
-            string[] erros = new string[3];
+            ArrayList erros = new ArrayList();
             int contadorErros = 0;
 
             if (string.IsNullOrEmpty(nome.Trim()))
@@ -40,13 +40,15 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFuncionario
             if (string.IsNullOrEmpty(senha.Trim()))
                 erros[contadorErros++] = ("O campo \"senha\" é obrigatório");           
 
-            string[] errosFiltrados = new string[contadorErros];
+            
 
-            Array.Copy(erros, errosFiltrados, contadorErros);
-
-            return errosFiltrados;
+            return erros;
+        }
+        public override void AtualizarRegistro(EntidadeBase novoRegistro)
+        {
+            throw new NotImplementedException();
         }
 
-       
+
     }
 }

@@ -1,6 +1,7 @@
 ﻿using ControleMedicamentos.ConsoleApp.Compartilhado;
 using ControleMedicamentos.ConsoleApp.ModuloMedicamento;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFuncionario
                 "Id", "Nome", "CPF", "Login", "Senha"
             );
 
-            EntidadeBase[] funcionariosCadastrados = repositorio.SelecionarTodos();
+            ArrayList funcionariosCadastrados = repositorio.SelecionarTodos();
 
             foreach (Funcionario funcionario in funcionariosCadastrados)
             {

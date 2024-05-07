@@ -26,9 +26,9 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFornecedor
 
       
 
-        public override string[] Validar() 
+        public override ArrayList Validar() 
         {
-            string[] erros = new string[3];
+            ArrayList erros = new ArrayList();
             int contadorErros = 0;
 
             if (string.IsNullOrEmpty(nome.Trim()))
@@ -40,12 +40,13 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFornecedor
             if (string.IsNullOrEmpty(cnpj.Trim()))
                 erros[contadorErros++] = ("O campo \"CNPJ\" é obrigatório");                       
 
-            string[] errosFiltrados = new string[contadorErros];
+            
 
-            Array.Copy(erros, errosFiltrados, contadorErros);
-
-            return errosFiltrados;
-             
+            return erros;             
+        }
+        public override void AtualizarRegistro(EntidadeBase novoRegistro)
+        {
+            throw new NotImplementedException();
         }
     }
 }
